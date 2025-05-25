@@ -6,3 +6,6 @@
 
 // entry point for reagent to run
 #include "Reagent/EntryPoint.h"
+
+//logger for reagent systems
+#include "Reagent/Log.h"

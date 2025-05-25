@@ -1,0 +1,3 @@
+[submodule "Reagent/etc/spdlog"]
+	path = Reagent/etc/spdlog
+	url = https://github.com/gabime/spdlog
