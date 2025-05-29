@@ -152,10 +152,11 @@ copy /B /Y ..\bin\Dist-windows-x86_64\Reagent\Reagent.dll ..\bin\Dist-windows-x8
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Reagent.h" />
     <ClInclude Include="src\Reagent\Application.h" />
     <ClInclude Include="src\Reagent\Core.h" />
     <ClInclude Include="src\Reagent\EntryPoint.h" />
+    <ClInclude Include="src\Reagent\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Reagent\Events\Event.h" />
     <ClInclude Include="src\Reagent\Log.h" />
   </ItemGroup>
   <ItemGroup>

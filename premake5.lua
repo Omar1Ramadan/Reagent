@@ -20,8 +20,9 @@ project "Reagent"
 
     files
     {
-        "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp",
+       "%{prj.name}/src/Reagent/**.h",
+       "%{prj.name}/src/Reagent/**.cpp",
+       "%{prj.name}/src/Reagent/**.inl",
     }
 
     includedirs
