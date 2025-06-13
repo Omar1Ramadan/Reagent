@@ -1,7 +1,6 @@
 #pragma once  
-
-#include "Reagent/Events/Event.h"
-
+#include "rgpch.h"
+#include "./Event.h"
 
 namespace rg {
 
@@ -16,16 +15,14 @@ namespace rg {
 
 		std::string ToString() const override
 		{
-			std::stringstream ss;
-			ss << "WindowResizeEvent: " << m_Width << ", " << m_Height;
-			return ss.str();
+			return "WindowResizeEvent: " + std::to_string(m_Width) + ", " + std::to_string(m_Height);
 		}
 
 		EVENT_CLASS_TYPE(WindowResize)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 
 	private:
-		unsigned inst m_Width, m_Height;
+		unsigned int m_Width, m_Height;
 	};
 
 	class WindowCloseEvent : public Event

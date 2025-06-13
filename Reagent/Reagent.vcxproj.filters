@@ -1,24 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Events">
-      <UniqueIdentifier>{3A8963B1-262B-8E87-0FE6-A1DBFB2615D8}</UniqueIdentifier>
+    <Filter Include="Reagent">
+      <UniqueIdentifier>{EB9A959E-577A-143A-6092-9F10CCF07A9B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reagent\Core">
+      <UniqueIdentifier>{234ACB65-0FAD-5A0A-B832-93C0A474268D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reagent\Events">
+      <UniqueIdentifier>{6F70E80A-5B3E-DC10-44D2-4C37303FB875}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Reagent\Application.h" />
-    <ClInclude Include="src\Reagent\Core.h" />
-    <ClInclude Include="src\Reagent\EntryPoint.h" />
+    <ClInclude Include="src\Reagent.h" />
+    <ClInclude Include="src\Reagent\Application.h">
+      <Filter>Reagent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reagent\Core.h">
+      <Filter>Reagent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reagent\Core\KeyCode.h">
+      <Filter>Reagent\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reagent\Core\MouseCode.h">
+      <Filter>Reagent\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reagent\EntryPoint.h">
+      <Filter>Reagent</Filter>
+    </ClInclude>
     <ClInclude Include="src\Reagent\Events\ApplicationEvent.h">
-      <Filter>Events</Filter>
+      <Filter>Reagent\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Reagent\Events\Event.h">
-      <Filter>Events</Filter>
+      <Filter>Reagent\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Reagent\Log.h" />
+    <ClInclude Include="src\Reagent\Events\KeyEvent.h">
+      <Filter>Reagent\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reagent\Events\MouseEvent.h">
+      <Filter>Reagent\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reagent\Log.h">
+      <Filter>Reagent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rgpch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Reagent\Application.cpp" />
-    <ClCompile Include="src\Reagent\Log.cpp" />
+    <ClCompile Include="src\Reagent\Application.cpp">
+      <Filter>Reagent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Reagent\Log.cpp">
+      <Filter>Reagent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rgpch.cpp" />
   </ItemGroup>
 </Project>

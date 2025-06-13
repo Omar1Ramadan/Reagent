@@ -18,16 +18,22 @@ project "Reagent"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+    pchheader "rgpch.h"
+    pchsource "Reagent/src/rgpch.cpp"
+
+    forceincludes { "rgpch.h" }
+
     files
     {
-       "%{prj.name}/src/Reagent/**.h",
-       "%{prj.name}/src/Reagent/**.cpp",
-       "%{prj.name}/src/Reagent/**.inl",
+       "%{prj.name}/src/**.h",
+       "%{prj.name}/src/**.cpp"
     }
 
     includedirs
     {
-        "%{prj.name}/etc/spdlog/include"
+        "%{prj.name}/src",
+        "%{prj.name}/etc/spdlog/include",
+        "$(VC_IncludePath)"
     }
 
     buildoptions { "/utf-8"}

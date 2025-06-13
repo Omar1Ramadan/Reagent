@@ -1,6 +1,7 @@
 #pragma once
-
+#include "rgpch.h"
 #include "Core.h"
+#include "Events/Event.h"
 
 namespace rg {
 	class RG_API Application
@@ -15,4 +16,3 @@ namespace rg {
 	// define this in the CLIENT
 	Application* CreateApplication();
 }
-

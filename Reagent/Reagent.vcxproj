@@ -76,10 +76,12 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>rgpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>RG_WINDOWS;RG_DLL;RG_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>etc\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;etc\spdlog\include;$(VC_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>rgpch.h</ForcedIncludeFiles>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -99,10 +101,12 @@ copy /B /Y ..\bin\Debug-windows-x86_64\Reagent\Reagent.dll ..\bin\Debug-windows-
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>rgpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>RG_WINDOWS;RG_DLL;RG_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>etc\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;etc\spdlog\include;$(VC_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>rgpch.h</ForcedIncludeFiles>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -126,10 +130,12 @@ copy /B /Y ..\bin\Release-windows-x86_64\Reagent\Reagent.dll ..\bin\Release-wind
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>rgpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>RG_WINDOWS;RG_DLL;RG_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>etc\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;etc\spdlog\include;$(VC_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>rgpch.h</ForcedIncludeFiles>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -152,16 +158,25 @@ copy /B /Y ..\bin\Dist-windows-x86_64\Reagent\Reagent.dll ..\bin\Dist-windows-x8
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Reagent.h" />
     <ClInclude Include="src\Reagent\Application.h" />
     <ClInclude Include="src\Reagent\Core.h" />
+    <ClInclude Include="src\Reagent\Core\KeyCode.h" />
+    <ClInclude Include="src\Reagent\Core\MouseCode.h" />
     <ClInclude Include="src\Reagent\EntryPoint.h" />
     <ClInclude Include="src\Reagent\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Reagent\Events\Event.h" />
+    <ClInclude Include="src\Reagent\Events\KeyEvent.h" />
+    <ClInclude Include="src\Reagent\Events\MouseEvent.h" />
     <ClInclude Include="src\Reagent\Log.h" />
+    <ClInclude Include="src\rgpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Reagent\Application.cpp" />
     <ClCompile Include="src\Reagent\Log.cpp" />
+    <ClCompile Include="src\rgpch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

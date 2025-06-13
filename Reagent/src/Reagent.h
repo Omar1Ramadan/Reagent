@@ -9,3 +9,6 @@
 
 //logger for reagent systems
 #include "Reagent/Log.h"
+
+// precompiled header file for Reagent
+#include "rgpch.h"

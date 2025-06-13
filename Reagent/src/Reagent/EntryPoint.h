@@ -1,4 +1,5 @@
 #pragma once
+#include "rgpch.h"
 #include "Log.h"
 // the entry point for the Sandbox Application
 

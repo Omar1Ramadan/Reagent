@@ -1,9 +1,7 @@
 #pragma once
-
+#include "rgpch.h"
 #include "../Core.h"
 
-#include <string>
-#include <functional>
 
 namespace rg {
 	/*
@@ -82,3 +80,4 @@ namespace rg {
 	{
 		return os << e.ToString();
 	}
+}
