@@ -5,10 +5,15 @@
 #include "Reagent/Application.h"
 
 // entry point for reagent to run
-#include "Reagent/EntryPoint.h"
+#ifdef RG_ENTRY
+	#include "Reagent/EntryPoint.h"
+#endif
 
 //logger for reagent systems
 #include "Reagent/Log.h"
 
 // precompiled header file for Reagent
 #include "rgpch.h"
+
+// assertions for reagent systems
+#include "Reagent/Core/Assert.h"

@@ -1,16 +1,14 @@
 
-#include <Reagent.h>
+//#include <Reagent.h>
+//#include <Reagent/EntryPoint.h>
+#include "../../Reagent/src/Reagent.h"
+#include "../../Reagent/src/Reagent/EntryPoint.h"
 
 class Sandbox : public rg::Application 
 {
 public:
 	Sandbox() 
-	{
-		rg::Log::Init();
-		rg::Log::GetCoreLogger()->warn("Initialized Log!");
-		rg::Log::GetClientLogger()->info("Hello");
-		RG_CORE_ERROR("Oh nonooooo");
-	}
+	{}
 	~Sandbox()
 	{
 

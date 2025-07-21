@@ -1,7 +1,7 @@
 #pragma once
 #include "rgpch.h"
 #include "Event.h"
-#include "../Core/MouseCode.h"
+#include "Reagent/Core/MouseCode.h"
 
 namespace rg {
 

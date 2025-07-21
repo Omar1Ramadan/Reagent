@@ -10,13 +10,19 @@ workspace "Reagent"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- include directories relative to root folder
+IncludeDir = {}
+IncludeDir ["GLFW"] = "Reagent/etc/GLFW/include"
+
+include "Reagent/etc/GLFW/premake5.lua"
+
 project "Reagent"
     location "Reagent"
     kind "SharedLib"
     language "C++"
 
-    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
 
     pchheader "rgpch.h"
     pchsource "Reagent/src/rgpch.cpp"
@@ -25,15 +31,25 @@ project "Reagent"
 
     files
     {
-       "%{prj.name}/src/**.h",
-       "%{prj.name}/src/**.cpp"
+        "src/**.h",
+        "src/**.cpp",
+        "%{prj.name}/src/**.h",
+        "%{prj.name}/src/**.cpp"
     }
 
     includedirs
     {
+        "src",
         "%{prj.name}/src",
+        "src/Platform/Windows",
         "%{prj.name}/etc/spdlog/include",
-        "$(VC_IncludePath)"
+        "$(VC_IncludePath)",
+        "%{IncludeDir.GLFW}"
+    }
+    links
+    {
+        "GLFW",
+        "opengl32.lib", -- Link against OpenGL library
     }
 
     buildoptions { "/utf-8"}
@@ -79,14 +95,13 @@ project "Sandbox"
 
     files
     {
-        "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp",
+        "Sandbox/**.h",
+        "Sandbox/**.cpp"
     }
 
     includedirs
     {
         "Reagent/etc/spdlog/include",
-        "Reagent/src"
     }
 
     buildoptions { "/utf-8"}
@@ -98,7 +113,8 @@ project "Sandbox"
 
         defines
         {
-            "RG_WINDOWS"
+            "RG_WINDOWS",
+            "RG_ENTRY"
         }
 
     links

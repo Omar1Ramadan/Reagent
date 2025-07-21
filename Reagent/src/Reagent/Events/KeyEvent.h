@@ -5,29 +5,31 @@
 
 //KeyPressed, KeyReleased, KeyTyped
 
-namespace rg 
+namespace rg
 {
 	class KeyEvent : public Event
 	{
 	public:
-		rg::KeyCode GetKeyCode() const { return m_KeyCode; }
+		KeyCode GetKeyCode() const { return m_KeyCode; }
 
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
-		
-	protected:
-		KeyEvent(const rg::KeyCode keycode)
-			: m_KeyCode(keycode) { }
 
-		rg::KeyCode m_KeyCode;
+	protected:
+		KeyEvent(const KeyCode keycode)
+			: m_KeyCode(keycode) {
+		}
+
+		KeyCode m_KeyCode;
 	};
 
 	class KeyPressedEvent : public KeyEvent
 	{
 	public:
-		KeyPressedEvent(const rg::KeyCode keycode, bool isRepeat = false)
-			: KeyEvent(keycode), m_IsRepeat(isRepeat) { }
+		KeyPressedEvent(const KeyCode keycode, bool isRepeat = false)
+			: KeyEvent(keycode), m_IsRepeat(isRepeat) {
+		}
 
-		bool isRepeat() const{ return m_IsRepeat; }
+		bool isRepeat() const { return m_IsRepeat; }
 
 		std::string ToString() const override
 		{
@@ -44,8 +46,9 @@ namespace rg
 	{
 	public:
 		KeyReleasedEvent(const KeyCode keycode)
-			: KeyEvent(keycode) { }
-		
+			: KeyEvent(keycode) {
+		}
+
 		std::string ToString() const override
 		{
 			return "KeyReleasedEvent: " + std::to_string(m_KeyCode);
@@ -58,8 +61,9 @@ namespace rg
 	{
 	public:
 		KeyTypedEvent(const KeyCode keycode)
-			: KeyEvent(keycode) { }
-		
+			: KeyEvent(keycode) {
+		}
+
 		std::string ToString() const override
 		{
 			return "KeyTypedEvent: " + std::to_string(m_KeyCode);
@@ -67,3 +71,4 @@ namespace rg
 
 		EVENT_CLASS_TYPE(KeyTyped)
 	};
+}
